@@ -30,7 +30,7 @@ namespace Goban
 		
 		void HandlePositionDeleteCommand(Position position)
 		{
-			IGroup group = _board.FindChain(position);
+			IGroup group = _board.FindGroup(position);
 			if (group is Group)
 			{
 			    _board.Remove(group);
@@ -40,7 +40,7 @@ namespace Goban
 
 		void HandlePositionClick(Position position)
 		{
-			if (_board.FindChain(position) is NullChain)
+			if (_board.FindGroup(position) is NullGroup)
 			{
 				_board.Place(position, _current);
 				_boardControl.Refresh();

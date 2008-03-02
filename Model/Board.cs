@@ -26,33 +26,33 @@ namespace Goban.Model
 
 		public void Place(Position pos, Stone stone)
 		{
-			Set<Position> newChain = new Set<Position>();
-			newChain.Add(pos);
+			Set<Position> newGroup = new Set<Position>();
+			newGroup.Add(pos);
 			List<IGroup> mergeList = FindAll(delegate(IGroup g) { return g.Stone == stone && g.Bounds(pos); });
-			foreach(IGroup defunctChain in mergeList)
+			foreach(IGroup defunctGroup in mergeList)
 			{
-				Remove(defunctChain);
-				newChain = newChain.Union((IEnumerable<Position>)defunctChain);
+				Remove(defunctGroup);
+				newGroup = newGroup.Union((IEnumerable<Position>)defunctGroup);
 			}
-			Add(new Group(stone, newChain));
+			Add(new Group(stone, newGroup));
 
 			CheckEnclosedBy(pos);
 			CheckEnclosed(pos);
 		}
 
-		public IGroup FindChain(Position pos)
+		public IGroup FindGroup(Position pos)
 		{
 			if (!IsInPlayArea(pos)) return new BoardBoundary();
 			foreach (IGroup g in this)
 			{
 				if (g.Contains(pos)) return g;
 			}
-			return new NullChain();
+			return new NullGroup();
 		}
 	
 		public bool IsOccupied(Position pos)
 		{
-			return !(FindChain(pos) is NullChain);
+			return !(FindGroup(pos) is NullGroup);
 		}
 		
 		public bool IsInPlayArea(Position pos)
@@ -70,14 +70,14 @@ namespace Goban.Model
 		{
 			foreach(Position p in position.GetNeighbors())
 			{
-				IGroup group = FindChain(p);
+				IGroup group = FindGroup(p);
 				if (IsEnclosed(group)) Remove(group);
 			}
 		}
 		
 		protected void CheckEnclosed(Position pos)
 		{
-			IGroup group = FindChain(pos);
+			IGroup group = FindGroup(pos);
 			if (IsEnclosed(group)) Remove(group);
 		}
 		
@@ -85,7 +85,7 @@ namespace Goban.Model
 		{
 			foreach(Position p in group.GetNeighbors())
 			{
-				if (!FindChain(p).CanSurround) return false;
+				if (!FindGroup(p).CanSurround) return false;
 			}
 			return true;
 		}
@@ -95,7 +95,7 @@ namespace Goban.Model
 			int breath = 0;
 			foreach(Position p in group.GetNeighbors())
 			{
-				if (!FindChain(p).CanSurround) breath++;
+				if (!FindGroup(p).CanSurround) breath++;
 			}
 			return breath;
 		}
