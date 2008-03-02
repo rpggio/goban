@@ -20,15 +20,15 @@ namespace Goban.Model
 		{
 			float minBreathRatio = 1;
 			Group minBreathGroup = null;
-			foreach(Group chain in board)
+			foreach(Group group in board)
 			{
-				int boundary = chain.GetNeighbors().Count;
-				int breath = board.GetBreath(chain);
+				int boundary = group.GetNeighbors().Count;
+				int breath = board.GetBreath(group);
 				float breathRatio = (float)(breath) / boundary;
 				if (breathRatio < minBreathRatio)
 				{
 					minBreathRatio = breathRatio;
-					minBreathGroup = chain;
+					minBreathGroup = group;
 				}
 			}
 			return minBreathGroup;
