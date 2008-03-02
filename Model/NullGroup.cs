@@ -5,7 +5,7 @@ using Lambda.Collections.Generic;
 namespace Goban.Model
 {
 	[Serializable]
-	class NullGroup : IGroup
+	public class NullGroup : IGroup
 	{
 		public bool CanSurround
 		{

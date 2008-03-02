@@ -6,7 +6,7 @@ using Goban.Model;
 
 namespace Goban
 {
-	class BoardControl : Control
+	public class BoardControl : Control
 	{
 		private const float StoneDiameterFactor = 0.7f;
 		private const float GridMarginFactor = 0.05f;

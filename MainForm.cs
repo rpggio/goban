@@ -5,6 +5,8 @@ namespace Goban
 {
 	public partial class MainForm : Form
 	{
+		public event Action<EventArgs> ClearBoard;
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -21,6 +23,14 @@ namespace Goban
 		{
 			base.OnResize(e);
 			Refresh();
+		}
+
+		private void buttonClearBoard_Click(object sender, EventArgs e)
+		{
+			if (ClearBoard != null)
+			{
+				ClearBoard(e);
+			}
 		}
 	}
 }

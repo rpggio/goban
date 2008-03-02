@@ -1,6 +1,6 @@
 namespace Goban.Model
 {
-	class SurroundingThreatAgent : IAgent
+	public class SurroundingThreatAgent : IAgent
 	{
 		public Position SelectPlay(Board board)
 		{
