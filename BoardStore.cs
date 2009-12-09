@@ -4,6 +4,9 @@ using Goban.Model;
 
 namespace Goban
 {
+    /// <summary>
+    /// Saves/load board data using binary format.
+    /// </summary>
 	public class BoardStore
 	{
 		public void Save(Stream stream, Board board)

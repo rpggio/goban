@@ -4,6 +4,9 @@ using Goban.Model;
 
 namespace Goban
 {
+    /// <summary>
+    /// Handles user actions for the board.
+    /// </summary>
 	public class BoardController
 	{
 		private const int AgentSleepMilliseconds = 50;

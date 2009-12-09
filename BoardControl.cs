@@ -6,6 +6,10 @@ using Goban.Model;
 
 namespace Goban
 {
+    /// <summary>
+    /// Basic graphical interface for a board. 'd' key can be used to force deletion of 
+    /// stones from the board.
+    /// </summary>
 	public class BoardControl : Control
 	{
 		private const float StoneDiameterFactor = 0.7f;

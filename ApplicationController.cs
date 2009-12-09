@@ -5,10 +5,19 @@ using Goban.Model;
 
 namespace Goban
 {
+    /// <summary>
+    /// Root controller for the application. Handles loading of the game board 
+    /// and saving on application exit.
+    /// </summary>
 	public class ApplicationController
 	{
 		private const string SaveFile = "game.sav";
 		private const int BoardSize = 19;
+
+        /// <summary>
+        /// In debug mode, unhandled exceptions are allowed to crash the application. Otherwise,
+        /// exceptions are caught and logged to a text file.
+        /// </summary>
 		private const bool DebugMode = true;
 
 		private Board _board;
