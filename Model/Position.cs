@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Goban.Model
 {
+    /// <summary>
+    /// Represents a coordinate on the game board.
+    /// </summary>
 	[Serializable]
     public struct Position
     {
@@ -25,12 +28,21 @@ namespace Goban.Model
             get { return _row; }
         }
 
+        /// <summary>
+        /// Does this position bound the provided position?
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
     	public bool Bounds(Position pos)
     	{
 			return Math.Abs(pos.Row - _row)
 				   + Math.Abs(pos.Column - _column) == 1;
     	}
     	
+        /// <summary>
+        /// Get the neighbors of this position based on coordinate increment.
+        /// </summary>
+        /// <returns></returns>
     	public IList<Position> GetNeighbors()
     	{
 			return new Position[] { 
@@ -45,10 +57,5 @@ namespace Goban.Model
 		{
 		    return string.Format("#Position {{ Column:{0}, Row:{1} }}", _column, _row);
 		}
-    }
-	
-	public interface IPositionVisitor
-    {
-        void Visit(Position position, Group group);
     }
 }

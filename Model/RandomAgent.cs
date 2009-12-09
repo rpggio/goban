@@ -1,8 +1,10 @@
 using System;
-using Goban.Model;
 
 namespace Goban.Model
 {
+   /// <summary>
+   /// An agent that selects a random unoccupied board position.
+   /// </summary>
    public class RandomAgent : IAgent
    {
       private static Random random = new Random(DateTime.Now.Millisecond);

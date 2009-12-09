@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace Goban
 {
+    /// <summary>
+    /// Defers control to ApplicationController
+    /// </summary>
 	class Program
 	{
 		[STAThread]

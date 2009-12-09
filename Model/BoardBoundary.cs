@@ -4,9 +4,15 @@ using Lambda.Collections.Generic;
 
 namespace Goban.Model
 {
+    /// <summary>
+    /// Represents the board boundary. Contains no positions but can surround a group.
+    /// </summary>
 	[Serializable]
 	public class BoardBoundary : IGroup
 	{
+        /// <summary>
+        /// The boundary can participate in the surrounding of another group.
+        /// </summary>
 		public bool CanSurround
 		{
 			get { return true; }

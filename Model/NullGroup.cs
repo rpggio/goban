@@ -4,6 +4,9 @@ using Lambda.Collections.Generic;
 
 namespace Goban.Model
 {
+    /// <summary>
+    /// A group that contains no positions and cannot surround.
+    /// </summary>
 	[Serializable]
 	public class NullGroup : IGroup
 	{

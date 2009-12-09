@@ -5,6 +5,9 @@ using Lambda.Collections.Generic;
 
 namespace Goban.Model
 {
+    /// <summary>
+    /// A set of positions, with implementation of IGroup based on the contained positions.
+    /// </summary>
 	[Serializable]
     public class Group : Set<Position>, IGroup
     {
@@ -51,6 +54,10 @@ namespace Goban.Model
 			foreach (Position p in this) visitor.Visit(p, this);
 		}
 
+        /// <summary>
+        /// Get neighbors of all the contained positions.
+        /// </summary>
+        /// <returns></returns>
 		public Set<Position> GetNeighbors()
 		{
 			Set<Position> neighbors = new Set<Position>();

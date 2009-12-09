@@ -1,5 +1,10 @@
 namespace Goban.Model
 {
+    /// <summary>
+    /// An agent that selects a play based on the most-threatened group, whether it is self or opponent. 
+    /// Group threat is calculated as the ratio of ( breath / total surface ), so a small value represents
+    /// high threat. A random open position surrounding the threatened group is selected.
+    /// </summary>
 	public class SurroundingThreatAgent : IAgent
 	{
 		public Position SelectPlay(Board board)
@@ -16,7 +21,7 @@ namespace Goban.Model
 			throw new AgentException("Failed to select play");
 		}
 		
-		private Group FindMinBreath(Board board)
+		private static Group FindMinBreath(Board board)
 		{
 			float minBreathRatio = 1;
 			Group minBreathGroup = null;
