@@ -5,7 +5,7 @@ This game was created to demonstrate object-oriented design to a friend of mine 
 
 ![board](/board.jpg?raw=true "board")
 
-*Design*
+### Design
 The interface IGroup is used to represent groups of stones.
 
 ```
